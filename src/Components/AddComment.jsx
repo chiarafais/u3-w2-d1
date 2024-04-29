@@ -29,7 +29,6 @@ class AddComment extends Component {
             newComment: {
               comment: "",
               rate: "",
-              elementId: "",
             },
             isLoading: false,
           });
@@ -56,7 +55,7 @@ class AddComment extends Component {
   render() {
     return (
       <div>
-        <h6>Aggiungi Recensione:</h6>
+        <h6 className="bg-primary text-light">Aggiungi Recensione:</h6>
         <Container>
           <Form onSubmit={this.addComment}>
             <Form.Group className="mb-3" controlId="FormComment">

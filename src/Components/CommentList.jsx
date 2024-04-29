@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 
 class CommentList extends Component {
   state = {
@@ -50,18 +50,20 @@ class CommentList extends Component {
   render() {
     return (
       <div>
-        <h6>Recensioni:</h6>
+        <h6 className="m-0 bg-primary text-light">Recensioni:</h6>
         <div className="commentList">
           {this.state.comments.map((comment) => {
             return (
               <Row key={comment._id}>
                 <Col className="p-0 position-relative">
                   <div>
-                    <p>{comment.comment}</p>
+                    <p className="m-1">{comment.author}</p>
+                    <p className="m-1">{comment.comment}</p>
+                    <p className="m-1">{comment.rate}</p>
                     <span>
-                      <button className="bg-danger" onClick={this.deleteComment}>
-                        Elimina
-                      </button>
+                      <Button type="button" variant="danger">
+                        <i className="bi bi-trash3-fill" onClick={() => this.deleteComment(comment._id)}></i>
+                      </Button>
                     </span>
                   </div>
                 </Col>
